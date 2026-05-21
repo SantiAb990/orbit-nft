@@ -13,8 +13,17 @@ jobs:
         with:
           node-version: 18
       - run: rm -rf node_modules package-lock.json
-      - run: npm install
-      - run: npm run build
+      # Install Bun (official installer) and add it to PATH
+      - name: Install Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+          bun --version
+      - name: Install dependencies with Bun
+        run: bun install
+      - name: Build with Bun
+        run: bun run build
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
