@@ -1,0 +1,6 @@
+{
+  "name": "Orbis.Nft",
+  "description": "Orbis.Nft - High-fidelity space themed NFT landing page with liquid glass aesthetic",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
